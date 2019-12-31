@@ -61,7 +61,7 @@ export class AnypointDialogScrollable extends LitElement {
   }
 
   _ensureTarget() {
-    const node = this.dialogElement = this.dialogElement || this.parentElement;
+    const node = this.dialogElement || this.parentElement;
     if (node) {
       node.sizingTarget = this.scrollTarget;
     }
