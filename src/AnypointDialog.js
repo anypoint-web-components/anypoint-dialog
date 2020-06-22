@@ -5,7 +5,7 @@ import dialogStyles from './AnypointDialogStyles.js';
 export class AnypointDialog extends AnypointDialogMixin(LitElement) {
   static get styles() {
     return [
-      dialogStyles
+      dialogStyles,
     ];
   }
 

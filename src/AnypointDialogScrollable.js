@@ -41,7 +41,6 @@ export class AnypointDialogScrollable extends LitElement {
     return {
       /**
        * Parent element to this element.
-       * @type {?Node}
        */
       dialogElement: { type: Object }
     };

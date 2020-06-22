@@ -1,6 +1,6 @@
 [![Published on NPM](https://img.shields.io/npm/v/@anypoint-web-components/anypoint-dialog.svg)](https://www.npmjs.com/package/@anypoint-web-components/anypoint-dialog)
 
-[![Build Status](https://travis-ci.org/anypoint-web-components/anypoint-dialog.svg?branch=stage)](https://travis-ci.org/anypoint-web-components/anypoint-dialog)
+[![Build Status](https://travis-ci.com/anypoint-web-components/anypoint-dialog.svg)](https://travis-ci.com/anypoint-web-components/anypoint-dialog)
 
 # anypoint-dialog
 
@@ -14,7 +14,7 @@ Dialogs inform users about a task and can contain critical information, require 
 
 ### Installation
 ```
-npm install --save @anypoint-web-components/anypoint-dialog
+npm install @anypoint-web-components/anypoint-dialog --save
 ```
 
 ### In an html file
