@@ -9,6 +9,15 @@ export class AnypointDialog extends AnypointDialogMixin(LitElement) {
     ];
   }
 
+  static get properties() {
+    return {
+      /** 
+       * Enables compatibility theme for Anypoint
+       */
+      compatibility: { type: Boolean, reflect: true, }
+    };
+  }
+
   render() {
     return html`<slot></slot>`;
   }

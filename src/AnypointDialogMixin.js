@@ -12,8 +12,8 @@ const mxFunction = (base) => {
     static get properties() {
       return {
         /**
-         * If `modal` is true, this implies `nocancelonoutsideclick`,
-         * `nocancelonesckey` and `withbackdrop`.
+         * If `modal` is true, this implies `noCancelOnOutsideClick`,
+         * `noCancelOnEscKey` and `withBackdrop`.
          */
         modal: { type: Boolean },
       };

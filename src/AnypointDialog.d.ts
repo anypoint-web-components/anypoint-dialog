@@ -3,6 +3,11 @@ import { AnypointDialogMixin } from './AnypointDialogMixin';
 
 export declare class AnypointDialog {
   static readonly styles: CSSResult;
+  /** 
+   * Enables compatibility theme for Anypoint
+   * @attribute
+   */
+  compatibility: boolean;
 
   render(): TemplateResult;
 }
