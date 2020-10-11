@@ -42,3 +42,15 @@
 * adding @open-wc/dedupe-mixin and types definition [22be992](https://github.com/anypoint-web-components/anypoint-dialog/commit/22be992fd75ed47a222b715e8841ab2dcaa5373f) by Pawel
 
 
+<a name="0.1.5"></a>
+## [0.1.5](https://github.com/anypoint-web-components/anypoint-dialog/compare/0.1.3...0.1.5) (2020-10-11)
+
+### Update
+
+* updating dependencies and types [bc0688d](https://github.com/anypoint-web-components/anypoint-dialog/commit/bc0688db90315c2149b1de3ee545156f655ed8c1) by Pawel
+* [ci skip] automated merge master->stage. syncing main branches [8448150](https://github.com/anypoint-web-components/anypoint-dialog/commit/8448150cc4383a53ad334b753699a0388924e08a) by Ci agent
+* adding styles export [138295c](https://github.com/anypoint-web-components/anypoint-dialog/commit/138295cadeb7e189ffb4885457602b0e93d0765b) by Pawel
+* removing private restriction on npm publish [e19446b](https://github.com/anypoint-web-components/anypoint-dialog/commit/e19446b67acbe5a5bc5d0e445470edec6e0d5659) by Pawel
+* [ci skip] automated merge master->stage. syncing main branches [485b816](https://github.com/anypoint-web-components/anypoint-dialog/commit/485b8163dd4e3162395b5b949be0f8e9fa00861a) by Ci agent
+
+
