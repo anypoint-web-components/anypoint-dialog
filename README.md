@@ -1,7 +1,3 @@
-[![Published on NPM](https://img.shields.io/npm/v/@anypoint-web-components/anypoint-dialog.svg)](https://www.npmjs.com/package/@anypoint-web-components/anypoint-dialog)
-
-[![Build Status](https://travis-ci.com/anypoint-web-components/anypoint-dialog.svg)](https://travis-ci.com/anypoint-web-components/anypoint-dialog)
-
 # anypoint-dialog
 
 A material design dialog, also styled for Anypoint platform.
@@ -10,10 +6,15 @@ Anypoint web components are set of components that allows to build Anypoint enab
 
 Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.
 
+[![Published on NPM](https://img.shields.io/npm/v/@anypoint-web-components/anypoint-dialog.svg)](https://www.npmjs.com/package/@anypoint-web-components/anypoint-dialog)
+
+[![Build Status](https://travis-ci.com/anypoint-web-components/anypoint-dialog.svg)](https://travis-ci.com/anypoint-web-components/anypoint-dialog)
+
 ## Usage
 
 ### Installation
-```
+
+```sh
 npm install @anypoint-web-components/anypoint-dialog --save
 ```
 
@@ -35,8 +36,8 @@ npm install @anypoint-web-components/anypoint-dialog --save
         <p>Long content...</p>
       </anypoint-dialog-scrollable>
       <div class="buttons">
-        <anypoint-button dialog-dismiss>Cancel</anypoint-button>
-        <anypoint-button dialog-confirm autofocus>OK</anypoint-button>
+        <anypoint-button data-dialog-dismiss>Cancel</anypoint-button>
+        <anypoint-button data-dialog-confirm autofocus>OK</anypoint-button>
       </div>
     </anypoint-dialog>
     <script>
@@ -68,8 +69,8 @@ class SampleElement extends LitElement {
         <p>Long content...</p>
       </anypoint-dialog-scrollable>
       <div class="buttons">
-        <anypoint-button dialog-dismiss>Cancel</anypoint-button>
-        <anypoint-button dialog-confirm autofocus>OK</anypoint-button>
+        <anypoint-button data-dialog-dismiss>Cancel</anypoint-button>
+        <anypoint-button data-dialog-confirm autofocus>OK</anypoint-button>
       </div>
     </anypoint-dialog>
     `;
@@ -115,6 +116,7 @@ npm start
 ```
 
 ### Running the tests
+
 ```sh
 npm test
 ```

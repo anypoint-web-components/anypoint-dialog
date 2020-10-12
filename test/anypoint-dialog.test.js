@@ -4,36 +4,49 @@ import * as MockInteractions from '@polymer/iron-test-helpers/mock-interactions.
 import * as sinon from 'sinon/pkg/sinon-esm.js';
 import '../anypoint-dialog.js';
 
+/** @typedef {import('../').AnypointDialog} AnypointDialog */
+
 describe('<anypoint-dialog>', () => {
+  /**
+   * @returns {Promise<AnypointDialog>}
+   */
   async function basicFixture() {
-    return (await fixture(`<anypoint-dialog>
+    return (fixture(`<anypoint-dialog>
         <p>Dialog</p>
       </anypoint-dialog>`));
   }
-
+  /**
+   * @returns {Promise<AnypointDialog>}
+   */
   async function modalFixture() {
-    return (await fixture(`
+    return (fixture(`
       <anypoint-dialog modal>
         <p>Dialog</p>
       </anypoint-dialog>`));
   }
-
+  /**
+   * @returns {Promise<AnypointDialog>}
+   */
   async function modalEqualFixture() {
-    return (await fixture(`
-      <anypoint-dialog nocancelonesckey nocancelonoutsideclick withbackdrop>
+    return (fixture(`
+      <anypoint-dialog noCancelOnEscKey noCancelOnOutsideClick withBackdrop>
         <p>Dialog</p>
       </anypoint-dialog>`));
   }
-
+  /**
+   * @returns {Promise<AnypointDialog>}
+   */
   async function untilOpened(element) {
     return new Promise((resolve) => {
       element.addEventListener('overlay-opened', resolve);
       element.open();
     });
   }
-
+  /**
+   * @returns {Promise<AnypointDialog>}
+   */
   async function openedFixture() {
-    const element = (await fixture(`
+    const element = /** @type AnypointDialog */ (await fixture(`
       <anypoint-dialog>
         <p>Dialog</p>
         <div class="buttons">
@@ -45,9 +58,11 @@ describe('<anypoint-dialog>', () => {
     await untilOpened(element);
     return element;
   }
-
+  /**
+   * @returns {Promise<AnypointDialog>}
+   */
   async function openedCustomButtonFixture() {
-    const element = (await fixture(`
+    const element = /** @type AnypointDialog */ (await fixture(`
       <anypoint-dialog>
         <p>Dialog</p>
         <div class="buttons">
@@ -59,9 +74,27 @@ describe('<anypoint-dialog>', () => {
     await untilOpened(element);
     return element;
   }
-
+  /**
+   * @returns {Promise<AnypointDialog>}
+   */
+  async function openedDataAttributeFixture() {
+    const element = /** @type AnypointDialog */ (await fixture(`
+      <anypoint-dialog>
+        <p>Dialog</p>
+        <div class="buttons">
+          <anypoint-button extra>extra</anypoint-button>
+          <anypoint-button data-dialog-dismiss>dismiss</anypoint-button>
+          <anypoint-button data-dialog-confirm>confirm</anypoint-button>
+        </div>
+      </anypoint-dialog>`));
+    await untilOpened(element);
+    return element;
+  }
+  /**
+   * @returns {Promise<(AnypointDialog)[]>}
+   */
   async function openedNestedFixture() {
-    const element = (await fixture(`
+    const element = /** @type AnypointDialog */ (await fixture(`
       <anypoint-dialog>
         <p>Dialog</p>
         <div class="buttons">
@@ -100,7 +133,7 @@ describe('<anypoint-dialog>', () => {
       MockInteractions.tap(button);
       await aTimeout(100);
       assert.isTrue(spy.called, 'event is called');
-      const detail = spy.args[0][0].detail;
+      const {detail} = spy.args[0][0];
       assert.isFalse(detail.canceled, 'dialog is not canceled');
       assert.isFalse(detail.confirmed, 'dialog is not confirmed');
     });
@@ -113,7 +146,20 @@ describe('<anypoint-dialog>', () => {
       MockInteractions.tap(button);
       await aTimeout(100);
       assert.isTrue(spy.called, 'event is called');
-      const detail = spy.args[0][0].detail;
+      const {detail} = spy.args[0][0];
+      assert.isFalse(detail.canceled, 'dialog is not canceled');
+      assert.isFalse(detail.confirmed, 'dialog is not confirmed');
+    });
+
+    it('closes the dialog on data-dialog-dismiss click', async () => {
+      const element = await openedDataAttributeFixture();
+      const spy = sinon.spy();
+      element.addEventListener('overlay-closed', spy);
+      const button = element.querySelector('[data-dialog-dismiss]');
+      MockInteractions.tap(button);
+      await aTimeout(100);
+      assert.isTrue(spy.called, 'event is called');
+      const {detail} = spy.args[0][0];
       assert.isFalse(detail.canceled, 'dialog is not canceled');
       assert.isFalse(detail.confirmed, 'dialog is not confirmed');
     });
@@ -126,7 +172,7 @@ describe('<anypoint-dialog>', () => {
       MockInteractions.tap(button);
       await aTimeout(100);
       assert.isTrue(spy.called, 'event is called');
-      const detail = spy.args[0][0].detail;
+      const {detail} = spy.args[0][0];
       assert.isFalse(detail.canceled, 'dialog is not canceled');
       assert.isTrue(detail.confirmed, 'dialog is confirmed');
     });
@@ -139,7 +185,20 @@ describe('<anypoint-dialog>', () => {
       MockInteractions.tap(button);
       await aTimeout(100);
       assert.isTrue(spy.called, 'event is called');
-      const detail = spy.args[0][0].detail;
+      const {detail} = spy.args[0][0];
+      assert.isFalse(detail.canceled, 'dialog is not canceled');
+      assert.isTrue(detail.confirmed, 'dialog is confirmed');
+    });
+
+    it('closes the dialog on data-dialog-confirm click', async () => {
+      const element = await openedDataAttributeFixture();
+      const spy = sinon.spy();
+      element.addEventListener('overlay-closed', spy);
+      const button = element.querySelector('[data-dialog-confirm]');
+      MockInteractions.tap(button);
+      await aTimeout(100);
+      assert.isTrue(spy.called, 'event is called');
+      const {detail} = spy.args[0][0];
       assert.isFalse(detail.canceled, 'dialog is not canceled');
       assert.isTrue(detail.confirmed, 'dialog is confirmed');
     });
@@ -166,20 +225,20 @@ describe('<anypoint-dialog>', () => {
         const element = await modalFixture();
         element[property] = false;
         element.modal = false;
-        assert.isFalse(element[property], property + ' is false');
+        assert.isFalse(element[property], `${property} is false`);
       });
 
-      it(`keeps previous value of ${property} whem toggling modal`, async () => {
+      it(`keeps previous value of ${property} when toggling modal`, async () => {
         const element = await basicFixture();
         element[property] = true;
         element.modal = true;
         element.modal = false;
-        assert.isTrue(element[property], property + ' is still true');
+        assert.isTrue(element[property], `${property} is still true`);
       });
 
       it(`keeps attribute ${property} value when toggling modal`, async () => {
         const dialog = await modalEqualFixture();
-        assert.isTrue(dialog[property], property + ' is true');
+        assert.isTrue(dialog[property], `${property} is true`);
       });
     });
   });

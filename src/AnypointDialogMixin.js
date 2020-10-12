@@ -66,15 +66,25 @@ const mxFunction = (base) => {
     }
 
     _updateClosingReasonConfirmed(confirmed) {
-      this.closingReason = this.closingReason || {};
+      if (!this.closingReason) {
+        // @ts-ignore
+        this.closingReason = {};
+      }
+      // @ts-ignore
       this.closingReason.confirmed = confirmed;
     }
 
+    /**
+     * Checks if the click target is the dialog closing target
+     * @param {Element} target
+     * @returns
+     */
     _isTargetClosingReason(target) {
       if (!target.hasAttribute) {
         return false;
       }
-      return target.hasAttribute('dialog-dismiss') || target.hasAttribute('dialog-confirm');
+      const attrs = ['dialog-dismiss', 'dialog-confirm', 'data-dialog-dismiss', 'data-dialog-confirm'];
+      return attrs.some((name) => target.hasAttribute(name));
     }
 
     /**
@@ -82,11 +92,11 @@ const mxFunction = (base) => {
      */
     _clickHandler(e) {
       // @ts-ignore
-      const path = e.path || e.composedPath();
+      const path = /** @type Element[] */ (e.path || e.composedPath());
       for (let i = 0, l = path.indexOf(this); i < l; i++) {
         const target = path[i];
         if (this._isTargetClosingReason(target)) {
-          this._updateClosingReasonConfirmed(target.hasAttribute('dialog-confirm'));
+          this._updateClosingReasonConfirmed(target.hasAttribute('dialog-confirm') || target.hasAttribute('data-dialog-confirm'));
           this.close();
           e.stopPropagation();
           break;
