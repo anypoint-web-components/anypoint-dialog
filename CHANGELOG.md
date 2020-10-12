@@ -54,3 +54,18 @@
 * [ci skip] automated merge master->stage. syncing main branches [485b816](https://github.com/anypoint-web-components/anypoint-dialog/commit/485b8163dd4e3162395b5b949be0f8e9fa00861a) by Ci agent
 
 
+<a name="0.1.6"></a>
+## [0.1.6](https://github.com/anypoint-web-components/anypoint-dialog/compare/0.1.4...0.1.6) (2020-10-12)
+
+### Update
+
+* [ci skip] automated merge master->stage. syncing main branches [4b4eebf](https://github.com/anypoint-web-components/anypoint-dialog/commit/4b4eebfb66fb81630a6488dcfa892b222fefa262) by Ci agent
+* updating dependencies and types [bc0688d](https://github.com/anypoint-web-components/anypoint-dialog/commit/bc0688db90315c2149b1de3ee545156f655ed8c1) by Pawel
+* [ci skip] automated merge master->stage. syncing main branches [8448150](https://github.com/anypoint-web-components/anypoint-dialog/commit/8448150cc4383a53ad334b753699a0388924e08a) by Ci agent
+
+
+### Features
+
+* adding support for data-* attributes [65cc2e3](https://github.com/anypoint-web-components/anypoint-dialog/commit/65cc2e311638af0945f2f8bc55ef7913cb9be865) by Pawel
+
+
