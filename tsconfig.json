@@ -13,8 +13,7 @@
     "esModuleInterop": true,
     "plugins": [
       {
-        "name": "typescript-lit-html-plugin",
-        "name": "ts-lit-plugin"
+        "name": "typescript-lit-html-plugin"
       }
     ]
   },

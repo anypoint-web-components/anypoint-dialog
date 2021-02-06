@@ -299,6 +299,10 @@
       ],
       "events": [
         {
+          "name": "resize",
+          "description": "Dispatched when the element should re-layout itself."
+        },
+        {
           "name": "opened",
           "description": "Dispatched after the element is rendered opened"
         },
@@ -309,6 +313,10 @@
         {
           "name": "cancel",
           "description": "Dispatched when element is about to be closed. Cancelling the event stops the closing."
+        },
+        {
+          "name": "openedchange",
+          "description": "When the `opened` property changed."
         }
       ]
     }

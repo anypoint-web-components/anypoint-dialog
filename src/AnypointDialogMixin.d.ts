@@ -1,6 +1,6 @@
-import { ArcOverlayMixinConstructor, ArcOverlayMixin } from '@advanced-rest-client/arc-overlay-mixin/src/ArcOverlayMixin';
+import { ArcOverlayMixin } from '@advanced-rest-client/arc-overlay-mixin/src/ArcOverlayMixin';
 
-declare function AnypointDialogMixin<T extends new (...args: any[]) => {}>(base: T): T & ArcOverlayMixinConstructor & AnypointDialogMixinConstructor;
+declare function AnypointDialogMixin<T extends new (...args: any[]) => {}>(base: T): T & AnypointDialogMixinConstructor;
 interface AnypointDialogMixinConstructor {
   new(...args: any[]): AnypointDialogMixin;
 }

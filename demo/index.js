@@ -1,3 +1,4 @@
+/* eslint-disable lit-a11y/no-autofocus */
 import { html } from 'lit-html';
 import { ArcDemoPage } from '@advanced-rest-client/arc-demo-helper/ArcDemoPage.js';
 import '@anypoint-web-components/anypoint-checkbox/anypoint-checkbox.js';
@@ -38,14 +39,7 @@ class DemoPage extends ArcDemoPage {
 
   _demoStateHandler(e) {
     const state = e.detail.value;
-    switch (state) {
-      case 0:
-        this.demoCompatibility = false;
-        break;
-      case 1:
-        this.demoCompatibility = true;
-        break;
-    }
+    this.demoCompatibility = state === 1;
   }
 
   _openHandler() {
@@ -182,10 +176,10 @@ sunt in culpa qui officia deserunt mollit anim id est laborum.
               @click="${this._nestedHandler}"
               ?compatibility="${demoCompatibility}">Open nested</anypoint-button>` : ''}
             <anypoint-button
-              dialog-dismiss
+              data-dialog-dismiss
               ?compatibility="${demoCompatibility}">Cancel</anypoint-button>
             <anypoint-button
-              dialog-confirm
+              data-dialog-confirm
               autofocus
               ?compatibility="${demoCompatibility}">OK</anypoint-button>
           </div>` : ''}
@@ -201,7 +195,7 @@ sunt in culpa qui officia deserunt mollit anim id est laborum.
           </p>
 
           <div class="buttons">
-            <anypoint-button dialog-confirm autofocus>OK</anypoint-button>
+            <anypoint-button data-dialog-confirm autofocus>OK</anypoint-button>
           </div>
         </anypoint-dialog>
       </section>
@@ -248,12 +242,12 @@ sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
 
         <p>
-          Button with "dialog-dismiss" attribute will dismiss the dialog with
+          Button with "data-dialog-dismiss" attribute will dismiss the dialog with
           "confirmed" property on a detail object of "overlay-closed" event set to false.
         </p>
 
         <p>
-          Button with "dialog-confirm" attribute will close the dialog with
+          Button with "data-dialog-confirm" attribute will close the dialog with
           "confirmed" property on a detail object of "overlay-closed" event set to true.
         </p>
 
@@ -265,8 +259,8 @@ sunt in culpa qui officia deserunt mollit anim id est laborum.
               <h2>Dialog title</h2>
               <p>Dialog content</p>
               <div class="buttons">
-                <anypoint-button dialog-dismiss>Cancel</anypoint-button>
-                <anypoint-button dialog-confirm autofocus>OK</anypoint-button>
+                <anypoint-button data-dialog-dismiss>Cancel</anypoint-button>
+                <anypoint-button data-dialog-confirm autofocus>OK</anypoint-button>
               </div>
             </anypoint-dialog>`}
             </pre>
@@ -289,8 +283,8 @@ sunt in culpa qui officia deserunt mollit anim id est laborum.
                 <p>Long content...</p>
               </anypoint-dialog-scrollable>
               <div class="buttons">
-                <anypoint-button dialog-dismiss>Cancel</anypoint-button>
-                <anypoint-button dialog-confirm autofocus>OK</anypoint-button>
+                <anypoint-button data-dialog-dismiss>Cancel</anypoint-button>
+                <anypoint-button data-dialog-confirm autofocus>OK</anypoint-button>
               </div>
             </anypoint-dialog>`}
             </pre>
@@ -312,4 +306,3 @@ sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 const instance = new DemoPage();
 instance.render();
-window._demo = instance;
