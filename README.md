@@ -8,6 +8,8 @@ Dialogs inform users about a task and can contain critical information, require 
 
 [![Published on NPM](https://img.shields.io/npm/v/@anypoint-web-components/anypoint-dialog.svg)](https://www.npmjs.com/package/@anypoint-web-components/anypoint-dialog)
 
+[![tests](https://github.com/anypoint-web-components/anypoint-dialog/actions/workflows/tests.yml/badge.svg)](https://github.com/anypoint-web-components/anypoint-dialog/actions/workflows/tests.yml)
+
 ## Usage
 
 ### Installation
