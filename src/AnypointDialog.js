@@ -3,7 +3,9 @@ import { AnypointDialogMixin } from './AnypointDialogMixin.js';
 import dialogStyles from './AnypointDialogStyles.js';
 
 export class AnypointDialog extends AnypointDialogMixin(LitElement) {
-  static get styles() {
+
+  // eslint-disable-next-line class-methods-use-this
+  get styles() {
     return [
       dialogStyles,
     ];
@@ -19,6 +21,9 @@ export class AnypointDialog extends AnypointDialogMixin(LitElement) {
   }
 
   render() {
-    return html`<slot></slot>`;
+    return html`
+      <style>${this.styles}</style>
+      <slot></slot>
+    `;
   }
 }
