@@ -1,7 +1,9 @@
 import { html, LitElement, css } from 'lit-element';
 
 export class AnypointDialogScrollable extends LitElement {
-  static get styles() {
+
+  // eslint-disable-next-line class-methods-use-this
+  get styles() {
     return [
       css`
       :host {
@@ -87,6 +89,7 @@ export class AnypointDialogScrollable extends LitElement {
 
   render() {
     return html`
+      <styles>${this.styles}</styles>
       <div class="scrollable" @scroll="${this.updateScrollState}">
         <slot></slot>
       </div>
