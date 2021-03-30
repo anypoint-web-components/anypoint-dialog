@@ -89,7 +89,7 @@ export class AnypointDialogScrollable extends LitElement {
 
   render() {
     return html`
-      <styles>${this.styles}</styles>
+      <style>${this.styles}</style>
       <div class="scrollable" @scroll="${this.updateScrollState}">
         <slot></slot>
       </div>
