@@ -86,3 +86,26 @@
 * adding support for data-* attributes [65cc2e3](https://github.com/anypoint-web-components/anypoint-dialog/commit/65cc2e311638af0945f2f8bc55ef7913cb9be865) by Pawel
 
 
+<a name="0.1.9"></a>
+## [0.1.9](https://github.com/anypoint-web-components/anypoint-dialog/compare/0.1.6...0.1.9) (2021-03-30)
+
+### Build
+
+* bump version [a299c8c](https://github.com/anypoint-web-components/anypoint-dialog/commit/a299c8c7a75b938f626997f9973c9a99274655b7) by Carolina Wright
+
+
+### Update
+
+* embed styles in component [8bb80d7](https://github.com/anypoint-web-components/anypoint-dialog/commit/8bb80d7bbe745d0be793b2b4f65d9c902e22c9db) by Carolina Wright
+* [ci skip] automated merge master->stage. syncing main branches [5d014a1](https://github.com/anypoint-web-components/anypoint-dialog/commit/5d014a1eccafb7cf6d522ee996432adf10b3df20) by Ci agent
+* updating deps [890cda6](https://github.com/anypoint-web-components/anypoint-dialog/commit/890cda6e9fb79e1003a20c68439e5e279bdb1b42) by Pawel Psztyc
+* removing Travis badge [df3ba72](https://github.com/anypoint-web-components/anypoint-dialog/commit/df3ba72bd0d45cc2928de470c3dcf99593e8d787) by Pawel Psztyc
+* upgrading dependencies and tests and CI [c8c111c](https://github.com/anypoint-web-components/anypoint-dialog/commit/c8c111c49242ef40810e5756d062af8045ba2708) by Pawel Psztyc
+* [ci skip] automated merge master->stage. syncing main branches [ed0d92d](https://github.com/anypoint-web-components/anypoint-dialog/commit/ed0d92d0b1a7754a81051627aceff1e37807dd12) by Ci agent
+
+
+### Bug Fixes
+
+* typo [456c244](https://github.com/anypoint-web-components/anypoint-dialog/commit/456c2446a1547774316efc9f52c2a2aabc509b9e) by Carolina Wright
+
+
