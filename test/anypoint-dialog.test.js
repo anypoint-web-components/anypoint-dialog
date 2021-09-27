@@ -1,7 +1,7 @@
-import { fixture, aTimeout, assert } from '@open-wc/testing';
+import { fixture, aTimeout, assert, html } from '@open-wc/testing';
 import '@anypoint-web-components/anypoint-button/anypoint-button.js';
 import * as MockInteractions from '@polymer/iron-test-helpers/mock-interactions.js';
-import * as sinon from 'sinon/pkg/sinon-esm.js';
+import sinon from 'sinon';
 import '../anypoint-dialog.js';
 
 /** @typedef {import('../').AnypointDialog} AnypointDialog */
@@ -11,7 +11,7 @@ describe('<anypoint-dialog>', () => {
    * @returns {Promise<AnypointDialog>}
    */
   async function basicFixture() {
-    return (fixture(`<anypoint-dialog>
+    return (fixture(html`<anypoint-dialog>
         <p>Dialog</p>
       </anypoint-dialog>`));
   }
@@ -19,7 +19,7 @@ describe('<anypoint-dialog>', () => {
    * @returns {Promise<AnypointDialog>}
    */
   async function modalFixture() {
-    return (fixture(`
+    return (fixture(html`
       <anypoint-dialog modal>
         <p>Dialog</p>
       </anypoint-dialog>`));
@@ -28,7 +28,7 @@ describe('<anypoint-dialog>', () => {
    * @returns {Promise<AnypointDialog>}
    */
   async function modalEqualFixture() {
-    return (fixture(`
+    return (fixture(html`
       <anypoint-dialog noCancelOnEscKey noCancelOnOutsideClick withBackdrop>
         <p>Dialog</p>
       </anypoint-dialog>`));
@@ -240,6 +240,20 @@ describe('<anypoint-dialog>', () => {
         const dialog = await modalEqualFixture();
         assert.isTrue(dialog[property], `${property} is true`);
       });
+    });
+  });
+
+  describe('resize event', () => {
+    /** @type AnypointDialog */
+    let element;
+    beforeEach(async () => {
+      element = await basicFixture();
+    });
+
+    it('calls refit when a child resize', () => {
+      const spy = sinon.spy(element, 'refit');
+      element.firstElementChild.dispatchEvent(new Event('resize', { bubbles: true }));
+      assert.isTrue(spy.called);
     });
   });
 

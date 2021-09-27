@@ -41,6 +41,7 @@ const mxFunction = (base) => {
     constructor() {
       super();
       this._clickHandler = this._clickHandler.bind(this);
+      this._resizeHandler = this._resizeHandler.bind(this);
     }
 
     connectedCallback() {
@@ -51,6 +52,7 @@ const mxFunction = (base) => {
       this.setAttribute('role', 'dialog');
       this.setAttribute('tabindex', '-1');
       this.addEventListener('click', this._clickHandler);
+      this.addEventListener('resize', this._resizeHandler);
       this.__ready = true;
       if (this.modal) {
         this._modalChanged(this.modal);
@@ -63,6 +65,7 @@ const mxFunction = (base) => {
         super.disconnectedCallback();
       }
       this.removeEventListener('click', this._clickHandler);
+      this.removeEventListener('resize', this._resizeHandler);
     }
 
     _updateClosingReasonConfirmed(confirmed) {
@@ -102,6 +105,14 @@ const mxFunction = (base) => {
           break;
         }
       }
+    }
+
+    /**
+     * Handler for the resize event dispatched by the children. 
+     * Causes the content to resize.
+     */
+    _resizeHandler() {
+      this.refit();
     }
 
     _modalChanged(modal) {

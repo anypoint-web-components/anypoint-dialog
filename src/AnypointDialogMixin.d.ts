@@ -21,6 +21,11 @@ interface AnypointDialogMixin extends ArcOverlayMixin {
   _isTargetClosingReason(target: Node): boolean;
 
   _clickHandler(e: PointerEvent): void;
+  /**
+   * Handler for the resize event dispatched by the children. 
+   * Causes the content to resize.
+   */
+  _resizeHandler(): void;
 
   _modalChanged(modal: boolean): void;
 }
