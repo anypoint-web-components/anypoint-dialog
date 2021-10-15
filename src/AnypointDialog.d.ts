@@ -1,6 +1,9 @@
 import { TemplateResult, CSSResult, LitElement } from 'lit-element';
 import { AnypointDialogMixin } from './AnypointDialogMixin';
 
+/**
+ * @deprecated Migrate to @anypoint-web-components/awc
+ */
 export declare class AnypointDialog {
   static readonly styles: CSSResult;
   /** 

@@ -1,6 +1,9 @@
 import { TemplateResult, CSSResult, LitElement } from 'lit-element';
 import { AnypointDialog } from './AnypointDialog';
 
+/**
+ * @deprecated Migrate to @anypoint-web-components/awc
+ */
 export declare class AnypointDialogScrollable extends LitElement {
   static readonly styles: CSSResult;
 

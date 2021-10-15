@@ -1,4 +1,8 @@
-# anypoint-dialog
+# Deprecated
+
+This component has been moved to `anypoint-web-components/awc`.
+
+-----
 
 A material design dialog, also styled for Anypoint platform.
 

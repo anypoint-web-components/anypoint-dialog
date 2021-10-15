@@ -4,6 +4,9 @@ declare function AnypointDialogMixin<T extends new (...args: any[]) => {}>(base:
 interface AnypointDialogMixinConstructor {
   new(...args: any[]): AnypointDialogMixin;
 }
+/**
+ * @deprecated Migrate to @anypoint-web-components/awc
+ */
 interface AnypointDialogMixin extends ArcOverlayMixin {
   /**
    * If `modal` is true, this implies `noCancelOnOutsideClick`,
